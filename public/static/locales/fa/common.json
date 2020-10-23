@@ -1,0 +1,8 @@
+{
+  "h1": "یک متن فارسی",
+  "change-locale": "عوض کردن زبان",
+  "to-second-page": "صفحه دوم ",
+  "error-with-status": "ارور با کد({{statusCode}})",
+  "error-without-status": "ارور بدون کد",
+  "toggle-theme": "عوض کردن تم"
+}
