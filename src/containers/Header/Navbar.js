@@ -10,14 +10,20 @@ function Navbar({ t }) {
   const toggleLanguage = () => {
     if (i18n.language === "en") {
       i18n.changeLanguage("fa");
+    } else {
+      i18n.changeLanguage("en");
+    }
+  };
+
+  useEffect(() => {
+    if (i18n.language === "fa") {
       document.querySelector("html").setAttribute("lang", "fa");
       document.querySelector("html").setAttribute("dir", "rtl");
     } else {
-      i18n.changeLanguage("en");
       document.querySelector("html").setAttribute("lang", "en");
-      document.querySelector("html").setAttribute("dir", "rtl");
+      document.querySelector("html").setAttribute("dir", "ltr");
     }
-  };
+  }, [i18n.language]);
 
   useEffect(() => {
     var prevScrollpos = window.pageYOffset;
@@ -44,13 +50,13 @@ function Navbar({ t }) {
             </li>
 
             <li>
-              <Link smooth to="/#about">
+              <Link smooth to="#about">
                 {t("about_me")}
               </Link>
             </li>
 
             <li>
-              <Link smooth to="/#skills">
+              <Link smooth to="#skills">
                 {t("skills")}
               </Link>
             </li>

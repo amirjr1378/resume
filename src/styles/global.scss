@@ -1,76 +1,5 @@
 @import "./vendors/normalize";
 
-/// Native `url(..)` function wrapper
-/// @param {String} $base - base URL for the asset
-/// @param {String} $type - asset type folder (e.g. `fonts/`)
-/// @param {String} $path - asset path
-/// @return {Url}
-@function asset($base, $type, $path) {
-  @return url($base + $type + $path);
-}
-
-/// Returns URL to an image based on its path
-/// @param {String} $path - image path
-/// @param {String} $base [$base-url] - base URL
-/// @return {Url}
-/// @require $base-url
-@function image($path, $base: $base-url) {
-  @return asset($base, "images/", $path);
-}
-
-/// Returns URL to a font based on its path
-/// @param {String} $path - font path
-/// @param {String} $base [$base-url] - base URL
-/// @return {Url}
-/// @require $base-url
-@function font($path, $base: $base-url) {
-  @return asset($base, "fonts/", $path);
-}
-
-/// @param {String} $color-name - primary
-/// @return {css version of variable}
-
-@function getColor($color-name) {
-  @return var(--color-#{$color-name});
-}
-
-/// Event wrapper
-/// @author Harry Roberts
-/// @param {Bool} $self [false] - Whether or not to include current selector
-/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
-@mixin on-event($self: false) {
-  @if $self {
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-      @content;
-    }
-  } @else {
-    &:hover,
-    &:active,
-    &:focus {
-      @content;
-    }
-  }
-}
-
-/// @param {css rules}
-/// example @include desktop{display: none;}
-@mixin desktop {
-  @media (min-width: map-get($breakpoints, "large")) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: map-get($breakpoints, "medium")) {
-    @content;
-  }
-}
-/// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
   "small": 320px,
   "medium": 768px,
@@ -142,6 +71,78 @@ $max-width: 1180px !default;
 /// @example scss - When using a CDN
 ///   $base-url: 'http://cdn.example.com/assets/';
 $base-url: "http://lorempixel.com/400/200" !default;
+
+/// Native `url(..)` function wrapper
+/// @param {String} $base - base URL for the asset
+/// @param {String} $type - asset type folder (e.g. `fonts/`)
+/// @param {String} $path - asset path
+/// @return {Url}
+@function asset($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+/// Returns URL to an image based on its path
+/// @param {String} $path - image path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function image($path, $base: $base-url) {
+  @return asset($base, "images/", $path);
+}
+
+/// Returns URL to a font based on its path
+/// @param {String} $path - font path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function font($path, $base: $base-url) {
+  @return asset($base, "fonts/", $path);
+}
+
+/// @param {String} $color-name - primary
+/// @return {css version of variable}
+
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// @param {css rules}
+/// example @include desktop{display: none;}
+@mixin desktop {
+  @media (min-width: map-get($breakpoints, "large")) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: map-get($breakpoints, "medium")) {
+    @content;
+  }
+}
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
 
 body {
   background-color: var(--body-background);
