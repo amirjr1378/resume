@@ -29,24 +29,26 @@ export const works = [
   },
 
   {
-    title: "Amir design",
-    description:
-      "it is my website i build it when i learned styled component and utilize this feature to build this website",
-    image: "/assets/img/amir-design.png",
-    link: "https://gracious-wilson-140ce5.netlify.com/",
-  },
-  {
     title: "navit",
     description:
       "it is website for navit.i worked as a freelancer and develope some pages for them with react",
     image: "/assets/img/navit.png",
     link: "https://tender-villani-59ccd5.netlify.com/",
   },
+
   {
     title: "SAJED",
     description:
       "it is a simple portfolio site that shocase products of aluminiumsajed company and i design with performance in mind",
     image: "/assets/img/sajed.jpeg",
     link: "http://aluminiumsajed.ir/",
+  },
+
+  {
+    title: "Amir design",
+    description:
+      "it is my website i build it when i learned styled component and utilize this feature to build this website",
+    image: "/assets/img/amir-design.png",
+    link: "https://gracious-wilson-140ce5.netlify.com/",
   },
 ];
