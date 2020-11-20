@@ -1,4 +1,495 @@
+@import "./vendors/normalize";
+
+/// Native `url(..)` function wrapper
+/// @param {String} $base - base URL for the asset
+/// @param {String} $type - asset type folder (e.g. `fonts/`)
+/// @param {String} $path - asset path
+/// @return {Url}
+@function asset($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+/// Returns URL to an image based on its path
+/// @param {String} $path - image path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function image($path, $base: $base-url) {
+  @return asset($base, "images/", $path);
+}
+
+/// Returns URL to a font based on its path
+/// @param {String} $path - font path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function font($path, $base: $base-url) {
+  @return asset($base, "fonts/", $path);
+}
+
+/// @param {String} $color-name - primary
+/// @return {css version of variable}
+
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// @param {css rules}
+/// example @include desktop{display: none;}
+@mixin desktop {
+  @media (min-width: map-get($breakpoints, "large")) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: map-get($breakpoints, "medium")) {
+    @content;
+  }
+}
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  "small": 320px,
+  "medium": 768px,
+  "large": 1024px,
+) !default;
+
+$colors: (
+  text-color: rgb(34, 34, 34) /* Funny name though 😅 */,
+  base: #f4f6f6,
+  secondary: #dadddf,
+  black: #141618,
+  primary: #206aff,
+  primary-text: #fff,
+  whitish: #eeeeee,
+);
+
+$colors-dark: (
+  text-color: #fff,
+  base: #141618,
+  secondary: #2b2b2b,
+  warning: #ff5722,
+);
+
+$navbar-height: 60px;
+
+// make css variables with scss variables this is usefull for dark mode
+:root {
+  @each $name, $color in $colors {
+    --color-#{$name}: #{$color};
+  }
+}
+/// Regular font family
+/// @type List
+$text-font-stack: "Roboto", "Open Sans", "Helvetica Neue Light",
+  "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+  "Monaco", monospace !default;
+
+$text-font-rtl: "Vazir";
+/// Copy text color
+/// @type Color
+$text-color: rgb(34, 34, 34) !default;
+
+/// Main brand color
+/// @type Color
+$brand-color: rgb(229, 0, 80) !default;
+
+/// Light grey
+/// @type Color
+$light-grey: rgb(237, 237, 237) !default;
+
+/// Medium grey
+/// @type Color
+$mid-grey: rgb(153, 153, 153) !default;
+
+/// Dark grey
+/// @type Color
+$dark-grey: rgb(68, 68, 68) !default;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1180px !default;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: "http://lorempixel.com/400/200" !default;
+
 body {
   background-color: var(--body-background);
   color: var(--body-color);
+}
+
+body.dark {
+  @each $name, $color in $colors-dark {
+    --color-#{$name}: #{$color};
+  }
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  background-size: cover;
+}
+
+.btn--primary {
+  display: inline-block;
+  background-color: getColor(primary);
+  color: getColor(primary-text);
+  padding: 12px 20px;
+  margin-top: 10px;
+  border-radius: 3px;
+  box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.4);
+  @include on-event {
+    background-color: getColor(primary-text);
+    color: getColor(primary);
+  }
+}
+.navbar {
+  width: 100%;
+  height: 100%;
+  li {
+    z-index: 2;
+    a {
+      color: getColor(text-color);
+      @include on-event {
+        color: getColor(secondary);
+      }
+    }
+  }
+}
+
+.navbar-container {
+  z-index: 100;
+  background-color: getColor(primary);
+  height: $navbar-height;
+  line-height: 3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.4s ease-in;
+}
+.offset-top {
+  margin-top: $navbar-height;
+}
+.progress__container {
+  position: relative;
+  border-radius: 4px;
+  width: 100%;
+  height: 37px;
+  background: getColor(secondary);
+  .progress__value {
+    height: 100%;
+    background: getColor(primary);
+  }
+}
+
+.work__container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin: 2em;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .work__overlay {
+    opacity: 0;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.2s ease-out;
+    color: #fff;
+    .link {
+      margin: 10px auto;
+      text-align: center;
+    }
+    h5 {
+      font: 20px "opensans-bold", sans-serif;
+      color: #fff;
+    }
+    p {
+      font: 18px "opensans-light", sans-serif;
+      color: #c6c7c7;
+    }
+  }
+
+  &:hover {
+    .work__overlay {
+      opacity: 1;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+body {
+  color: getColor(text-color);
+  background-color: getColor(base);
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: getColor(primary);
+  text-decoration: none;
+
+  @include on-event {
+    color: $text-color;
+  }
+}
+
+.display--flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.display--grid {
+  display: grid;
+}
+.justify-content--around {
+  justify-content: space-around;
+}
+.justify-content--between {
+  justify-content: space-between;
+}
+
+.justify-content--center {
+  justify-content: center;
+}
+
+.align-items--start {
+  align-items: flex-start;
+}
+.margin--auto {
+  margin: auto;
+}
+.margin-x--auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+.container {
+  max-width: $max-width; /* 1 */
+  margin-left: auto; /* 2 */
+  margin-right: auto; /* 2 */
+  padding-left: 20px; /* 3 */
+  padding-right: 20px; /* 3 */
+  width: 100%; /* 1 */
+}
+
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * Basic typography style for copy text
+ */
+html {
+  font: normal 125% / 1.4 $text-font-stack;
+}
+html[dir="rtl"] {
+  font: normal 125% / 1.4 $text-font-rtl !important;
+}
+
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+.landing__header {
+  position: relative;
+  height: 100vh;
+  background-color: getColor(base);
+  color: getColor(text-color);
+  text-align: center;
+
+  .header__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .landing__header__content {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+#about {
+  background: getColor(secondary);
+  color: getColor(text-color);
+  min-height: 80vh;
+  .display--grid {
+    @include tablet {
+      grid-template-columns: 300px 1fr;
+      grid-gap: 50px;
+    }
+  }
+}
+
+.title {
+  border-right: 2px dashed getColor(primary);
+  border-left: 2px dashed getColor(primary);
+  padding: 15px;
+}
+
+#skills {
+  background: getColor(base);
+  color: getColor(text-color);
+  min-height: 80vh;
+  padding: 40px;
+  .display--grid {
+    @include tablet {
+      grid-template-columns: 300px 1fr;
+      grid-gap: 50px;
+      align-items: start;
+    }
+  }
+}
+
+#works {
+  background: getColor(secondary);
+  color: getColor(text-color);
+  min-height: 70vh;
+  .display--grid {
+    margin-top: 30px;
+    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+footer {
+  display: flex;
+  background-color: getColor(base);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .social-icons {
+    margin-top: 20px;
+    a {
+      margin: 10px;
+      font-size: 30px;
+    }
+  }
 }

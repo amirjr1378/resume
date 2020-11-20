@@ -1,8 +1,15 @@
 {
-  "h1": "A simple example",
-  "change-locale": "Change locale",
-  "to-second-page": "To second page",
-  "error-with-status": "A {{statusCode}} error occurred on server",
-  "error-without-status": "An error occurred on the server",
-  "toggle-theme": "toggle theme"
+  "author": "Amir Hossein Karimi",
+  "home": "home",
+  "author_description": "front-end web developer",
+  "about_me": "about me",
+  "download_resume": "download resume",
+  "contact_details": "contact details",
+  "address": "tehran",
+  "mobile": "+9193211519",
+  "email": "jramir669@gmail.com",
+  "footer": "© Copyright 2020 Amir Hossein Karimi",
+  "skills": "Skills",
+  "works": "view my works",
+  "useVpn": "if a page won't load please try vpn"
 }

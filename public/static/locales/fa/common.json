@@ -1,8 +1,16 @@
 {
-  "h1": "یک متن فارسی",
-  "change-locale": "عوض کردن زبان",
-  "to-second-page": "صفحه دوم ",
-  "error-with-status": "ارور با کد({{statusCode}})",
-  "error-without-status": "ارور بدون کد",
+  "author": "امیرحسین کریمی",
+  "home": "خانه",
+  "author_description": "برنامه نویس وب",
+  "about_me": "درباره من",
+  "download_resume": "دانلود رزومه",
+  "contact_details": "برقراری ارتباط",
+  "address": "تهران",
+  "mobile": "+9193211519",
+  "email": "jramir669@gmail.com",
+  "footer": "© تمام حقوق محفوظ است",
+  "skills": "مهارت ها",
+  "works": "مشاهده کار های من",
+  "useVpn": "اگر صفحه ای باز نشد لطفا با فیلتر شکن امتحان کنید",
   "toggle-theme": "عوض کردن تم"
 }
