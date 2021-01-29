@@ -5,21 +5,16 @@ export const works = [
     image: "/assets/img/doctop.png",
     link: "https://doctop.com/",
   },
+
   {
-    title: "waki",
+    title: "strapi-plugin-elastic",
     description:
-      "i was a frontend developer and i used reactjs! waki is a startup for online income",
-    image: "/assets/img/screencapture-waki-ir.png",
-    link: "https://hopeful-murdock-e938c5.netlify.app/",
-  },
-  {
-    title: "waki dashboard",
-    description:
-      "it is a cms panel to manage their blogs, customers , markets, partners, ... and it is also written in reactjs! user:admin && pass:123456",
+      "The purpose of developing this plugin is to use the elastic search engine in Strapi to help the application development process",
     image:
-      "https://353a23c500dde3b2ad58-c49fe7e7355d384845270f4a7a0a7aa1.ssl.cf2.rackcdn.com/5e43ecbcaceb0500087b935a/screenshot.png",
-    link: "https://friendly-banach-698bd9.netlify.com/",
+      "https://camo.githubusercontent.com/57d458561495cdfd546b14955a60b563a53a759c0f2971b4fb12850967290073/68747470733a2f2f692e6962622e636f2f507764507450372f323032302d31322d32312d32322d31382e706e67",
+    link: "https://github.com/marefati110/strapi-plugin-elastic",
   },
+
   {
     title: "ariabooking",
     description:
@@ -34,6 +29,22 @@ export const works = [
       "it is website for navit.i worked as a freelancer and develope some pages for them with react",
     image: "/assets/img/navit.png",
     link: "https://tender-villani-59ccd5.netlify.com/",
+  },
+
+  {
+    title: "waki",
+    description:
+      "i was a frontend developer and i used reactjs! waki is a startup for online income",
+    image: "/assets/img/screencapture-waki-ir.png",
+    link: "https://hopeful-murdock-e938c5.netlify.app/",
+  },
+  {
+    title: "waki dashboard",
+    description:
+      "it is a cms panel to manage their blogs, customers , markets, partners, ... and it is also written in reactjs! user:admin && pass:123456",
+    image:
+      "https://353a23c500dde3b2ad58-c49fe7e7355d384845270f4a7a0a7aa1.ssl.cf2.rackcdn.com/5e43ecbcaceb0500087b935a/screenshot.png",
+    link: "https://friendly-banach-698bd9.netlify.com/",
   },
 
   {
