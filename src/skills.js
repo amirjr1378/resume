@@ -13,6 +13,7 @@ export const skills = [
   { name: "Ant design", percent: 80 },
   { name: "umi , work on a dashboard panel with ant design pro", percent: 60 },
   { name: "javascript(es6)", percent: 80 },
+  { name: "typescript(i had to learn it but i glad i did it)", percent: 50 },
   { name: "Axios", percent: 80 },
   { name: "reactjs", percent: 80 },
   { name: "React hooks (can write reusable hooks) advance", percent: 80 },
