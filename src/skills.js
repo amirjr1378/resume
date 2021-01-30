@@ -18,6 +18,7 @@ export const skills = [
   { name: "reactjs", percent: 80 },
   { name: "React hooks (can write reusable hooks) advance", percent: 80 },
   { name: "React context", percent: 80 },
+  { name: "Formik (manage forms)", percent: 90 },
   { name: "Redux", percent: 60 },
   { name: "Redux-saga", percent: 60 },
   { name: "Nextjs framework for ssr rendering in reactjs", percent: 70 },
