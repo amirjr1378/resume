@@ -45,7 +45,7 @@ function Main({ t }) {
                 <div>
                   <a
                     className="btn--primary"
-                    href="https://drive.google.com/open?id=13uDjlZ23W39-aODEd1--_4GsM4ZsNynD"
+                    href="https://drive.google.com/file/d/13uDjlZ23W39-aODEd1--_4GsM4ZsNynD/view?usp=sharing"
                     download
                     target="_blank"
                   >
