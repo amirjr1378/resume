@@ -16,6 +16,14 @@ export const works = [
   },
 
   {
+    title: "ant design pro layout",
+    description:
+      "i forked popular package ant design pro layout and make it compatible with ssr , because they had archived the repo i had to puplish new repo to npm",
+    image: "/assets/img/prolayout-npm.png",
+    link: "https://www.npmjs.com/package/@amirkarimi/antd-pro-layout-with-ssr",
+  },
+
+  {
     title: "ariabooking",
     description:
       "i was a frontend developer and i used pure html and css and js to optimize and change some part for new look!",
@@ -45,14 +53,6 @@ export const works = [
     image:
       "https://353a23c500dde3b2ad58-c49fe7e7355d384845270f4a7a0a7aa1.ssl.cf2.rackcdn.com/5e43ecbcaceb0500087b935a/screenshot.png",
     link: "https://friendly-banach-698bd9.netlify.com/",
-  },
-
-  {
-    title: "SAJED",
-    description:
-      "it is a simple portfolio site that shocase products of aluminiumsajed company and i design with performance in mind",
-    image: "/assets/img/sajed.jpeg",
-    link: "http://aluminiumsajed.ir/",
   },
 
   {
