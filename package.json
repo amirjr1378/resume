@@ -11,9 +11,7 @@
     "build": "next build",
     "start": "next start -p ${PORT:=3000}"
   },
-  "devDependencies": {
-    "prettier": "^2.3.2"
-  },
+  "devDependencies": {},
   "dependencies": {
     "axios": "^0.20.0",
     "i18next": "^14.0.1",
