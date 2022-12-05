@@ -1,5 +1,19 @@
 export const works = [
   {
+    title: "Resume",
+    description: "This Site",
+    image: "/assets/img/github-sample.png",
+    link: "https://github.com/amirjr1378/resume",
+  },
+
+  {
+    title: "Fetch Data",
+    description: "Reusable component for fetching data",
+    image: "/assets/img/github-sample.png",
+    link: "https://github.com/amirjr1378/FetchData",
+  },
+
+  {
     title: "Doctop",
     description: "I was employed as front-end (reactjs).it was my recent job.",
     image: "/assets/img/doctop.png",
