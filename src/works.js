@@ -7,6 +7,13 @@ export const works = [
   },
 
   {
+    title: "Voice Player",
+    description: "voice player with react js & typescript",
+    image: "/assets/img/github-sample.png",
+    link: "https://github.com/amirjr1378/voice-player",
+  },
+
+  {
     title: "Fetch Data",
     description: "Reusable component for fetching data",
     image: "/assets/img/github-sample.png",
