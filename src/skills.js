@@ -4,6 +4,7 @@ export const skills = [
   { name: "html", percent: 80 },
   { name: "css", percent: 80 },
   { name: "sass", percent: 60 },
+  { name: "tailwind ui", percent: 90 },
   { name: "css in jss(styled-components)", percent: 50 },
   { name: "Bootstrap", percent: 80 },
   { name: "Material-UI", percent: 80 },
